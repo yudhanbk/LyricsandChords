@@ -17,8 +17,9 @@ def register_view(request):
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        password1 = request.POST['password1']
+        pssword2 = request.POST['password2']
+        user = authenticate(request, username=username, password=password1)
         if user:
             login(request, user)
             return redirect('song_list')
